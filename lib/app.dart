@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:anywhere_app/classes/app_config.dart';
 import 'package:anywhere_app/classes/result_data.dart';
 import 'package:anywhere_app/details_page.dart';
+import 'package:anywhere_app/layouts/details.dart';
 import 'package:anywhere_app/providers/call_result.dart';
 import 'package:anywhere_app/providers/current_app_config.dart';
 import 'package:flutter/material.dart';
@@ -56,11 +57,6 @@ class MyApp extends ConsumerWidget {
       ValueNotifier<Character?>(null);
 
   Widget _layoutTabletDetails() {
-    const myDivider = Divider(
-      indent: 20,
-      endIndent: 20,
-    );
-
     return ValueListenableBuilder(
       builder: (context, Character? selectedCharacter, Widget? child) {
         if (selectedCharacter == null) {
@@ -68,30 +64,10 @@ class MyApp extends ConsumerWidget {
             child: Text('No character selected'),
           );
         } else {
-          Widget image = getImageWidget(selectedCharacter.icon.url);
-          List<String> descriptionParts = selectedCharacter.text.split(' - ');
           return Center(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  image,
-                  myDivider,
-                  Text(
-                    descriptionParts[0],
-                    style: const TextStyle(fontSize: 24),
-                  ),
-                  myDivider,
-                  Text(
-                    descriptionParts[1],
-                    style: const TextStyle(fontSize: 18),
-                  ),
-                ],
-              ),
-            ),
-          );
+              child: DetailsLayout(
+            character: selectedCharacter,
+          ));
         }
       },
       valueListenable: _selectedTabletCharacter,
@@ -112,7 +88,7 @@ class MyApp extends ConsumerWidget {
         data: (resultData) {
           return LayoutBuilder(
               builder: (BuildContext context, BoxConstraints constraints) {
-            if (constraints.maxWidth > 600) {
+            if (MediaQuery.of(context).size.shortestSide > 600) {
               return Row(
                 children: [
                   Expanded(

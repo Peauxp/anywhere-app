@@ -1,4 +1,5 @@
 import 'package:anywhere_app/classes/result_data.dart';
+import 'package:anywhere_app/layouts/details.dart';
 import 'package:flutter/material.dart';
 
 class DetailsPage extends StatelessWidget {
@@ -6,15 +7,8 @@ class DetailsPage extends StatelessWidget {
 
   final Character character;
 
-  final myDivider = const Divider(
-    indent: 20,
-    endIndent: 20,
-  );
-
   @override
   Widget build(BuildContext context) {
-    List<String> descriptionParts = character.text.split(' - ');
-    Widget image = getImageWidget(character.icon.url);
     return Scaffold(
       appBar: AppBar(
         title: const Text('Character Details'),
@@ -27,25 +21,8 @@ class DetailsPage extends StatelessWidget {
                 AppBar().preferredSize.height -
                 MediaQuery.of(context).padding.top,
           ),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                image,
-                myDivider,
-                Text(
-                  descriptionParts[0],
-                  style: const TextStyle(fontSize: 24),
-                ),
-                myDivider,
-                Text(
-                  descriptionParts[1],
-                  style: const TextStyle(fontSize: 18),
-                ),
-              ],
-            ),
+          child: DetailsLayout(
+            character: character,
           ),
         ),
       ),
