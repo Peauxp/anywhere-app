@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 void main() async {
   AppConfig simpsonsAppConfig = AppConfig(
-    appName: 'Simpsons Anywhere',
+    apiEndpoint: 'simpsons+characters&format=json',
     flavor: Flavor.Simpsons,
   );
   Widget app = await initializeApp(simpsonsAppConfig);

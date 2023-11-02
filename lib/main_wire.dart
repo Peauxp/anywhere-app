@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 void main() async {
   AppConfig wireAppConfig = AppConfig(
-    appName: 'Wire Anywhere',
+    apiEndpoint: 'the+wire+characters&format=json',
     flavor: Flavor.Wire,
   );
   Widget app = await initializeApp(wireAppConfig);

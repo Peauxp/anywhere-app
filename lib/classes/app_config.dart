@@ -10,11 +10,11 @@ flavorToString(Flavor flavor) {
 }
 
 class AppConfig {
-  final String appName;
+  final String apiEndpoint;
   final Flavor flavor;
 
   AppConfig({
-    required this.appName,
+    required this.apiEndpoint,
     required this.flavor,
   });
 }

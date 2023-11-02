@@ -1,12 +1,12 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'flavor.dart';
+part of 'current_app_config.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$currentFlavorHash() => r'b39e54b0a776c470e9f6cccf37cb77f0f005bd63';
+String _$currentAppConfigHash() => r'5372105a96057d46104cd40470d1c8924e9069d0';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -29,30 +29,30 @@ class _SystemHash {
   }
 }
 
-/// See also [currentFlavor].
-@ProviderFor(currentFlavor)
-const currentFlavorProvider = CurrentFlavorFamily();
+/// See also [currentAppConfig].
+@ProviderFor(currentAppConfig)
+const currentAppConfigProvider = CurrentAppConfigFamily();
 
-/// See also [currentFlavor].
-class CurrentFlavorFamily extends Family<Flavor> {
-  /// See also [currentFlavor].
-  const CurrentFlavorFamily();
+/// See also [currentAppConfig].
+class CurrentAppConfigFamily extends Family<AppConfig> {
+  /// See also [currentAppConfig].
+  const CurrentAppConfigFamily();
 
-  /// See also [currentFlavor].
-  CurrentFlavorProvider call({
-    required Flavor flavor,
+  /// See also [currentAppConfig].
+  CurrentAppConfigProvider call({
+    required AppConfig appConfig,
   }) {
-    return CurrentFlavorProvider(
-      flavor: flavor,
+    return CurrentAppConfigProvider(
+      appConfig: appConfig,
     );
   }
 
   @override
-  CurrentFlavorProvider getProviderOverride(
-    covariant CurrentFlavorProvider provider,
+  CurrentAppConfigProvider getProviderOverride(
+    covariant CurrentAppConfigProvider provider,
   ) {
     return call(
-      flavor: provider.flavor,
+      appConfig: provider.appConfig,
     );
   }
 
@@ -68,91 +68,91 @@ class CurrentFlavorFamily extends Family<Flavor> {
       _allTransitiveDependencies;
 
   @override
-  String? get name => r'currentFlavorProvider';
+  String? get name => r'currentAppConfigProvider';
 }
 
-/// See also [currentFlavor].
-class CurrentFlavorProvider extends Provider<Flavor> {
-  /// See also [currentFlavor].
-  CurrentFlavorProvider({
-    required Flavor flavor,
+/// See also [currentAppConfig].
+class CurrentAppConfigProvider extends Provider<AppConfig> {
+  /// See also [currentAppConfig].
+  CurrentAppConfigProvider({
+    required AppConfig appConfig,
   }) : this._internal(
-          (ref) => currentFlavor(
-            ref as CurrentFlavorRef,
-            flavor: flavor,
+          (ref) => currentAppConfig(
+            ref as CurrentAppConfigRef,
+            appConfig: appConfig,
           ),
-          from: currentFlavorProvider,
-          name: r'currentFlavorProvider',
+          from: currentAppConfigProvider,
+          name: r'currentAppConfigProvider',
           debugGetCreateSourceHash:
               const bool.fromEnvironment('dart.vm.product')
                   ? null
-                  : _$currentFlavorHash,
-          dependencies: CurrentFlavorFamily._dependencies,
+                  : _$currentAppConfigHash,
+          dependencies: CurrentAppConfigFamily._dependencies,
           allTransitiveDependencies:
-              CurrentFlavorFamily._allTransitiveDependencies,
-          flavor: flavor,
+              CurrentAppConfigFamily._allTransitiveDependencies,
+          appConfig: appConfig,
         );
 
-  CurrentFlavorProvider._internal(
+  CurrentAppConfigProvider._internal(
     super._createNotifier, {
     required super.name,
     required super.dependencies,
     required super.allTransitiveDependencies,
     required super.debugGetCreateSourceHash,
     required super.from,
-    required this.flavor,
+    required this.appConfig,
   }) : super.internal();
 
-  final Flavor flavor;
+  final AppConfig appConfig;
 
   @override
   Override overrideWith(
-    Flavor Function(CurrentFlavorRef provider) create,
+    AppConfig Function(CurrentAppConfigRef provider) create,
   ) {
     return ProviderOverride(
       origin: this,
-      override: CurrentFlavorProvider._internal(
-        (ref) => create(ref as CurrentFlavorRef),
+      override: CurrentAppConfigProvider._internal(
+        (ref) => create(ref as CurrentAppConfigRef),
         from: from,
         name: null,
         dependencies: null,
         allTransitiveDependencies: null,
         debugGetCreateSourceHash: null,
-        flavor: flavor,
+        appConfig: appConfig,
       ),
     );
   }
 
   @override
-  ProviderElement<Flavor> createElement() {
-    return _CurrentFlavorProviderElement(this);
+  ProviderElement<AppConfig> createElement() {
+    return _CurrentAppConfigProviderElement(this);
   }
 
   @override
   bool operator ==(Object other) {
-    return other is CurrentFlavorProvider && other.flavor == flavor;
+    return other is CurrentAppConfigProvider && other.appConfig == appConfig;
   }
 
   @override
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, flavor.hashCode);
+    hash = _SystemHash.combine(hash, appConfig.hashCode);
 
     return _SystemHash.finish(hash);
   }
 }
 
-mixin CurrentFlavorRef on ProviderRef<Flavor> {
-  /// The parameter `flavor` of this provider.
-  Flavor get flavor;
+mixin CurrentAppConfigRef on ProviderRef<AppConfig> {
+  /// The parameter `appConfig` of this provider.
+  AppConfig get appConfig;
 }
 
-class _CurrentFlavorProviderElement extends ProviderElement<Flavor>
-    with CurrentFlavorRef {
-  _CurrentFlavorProviderElement(super.provider);
+class _CurrentAppConfigProviderElement extends ProviderElement<AppConfig>
+    with CurrentAppConfigRef {
+  _CurrentAppConfigProviderElement(super.provider);
 
   @override
-  Flavor get flavor => (origin as CurrentFlavorProvider).flavor;
+  AppConfig get appConfig => (origin as CurrentAppConfigProvider).appConfig;
 }
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
