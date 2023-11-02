@@ -1,8 +1,8 @@
 import 'package:anywhere_app/classes/result_data.dart';
 import 'package:flutter/material.dart';
 
-class DetailsLayout extends StatelessWidget {
-  const DetailsLayout({super.key, required this.character});
+class CharacterDetails extends StatelessWidget {
+  const CharacterDetails({super.key, required this.character});
 
   final Character character;
 

@@ -95,7 +95,7 @@ class MyApp extends ConsumerWidget {
           );
         } else {
           return Center(
-              child: DetailsLayout(
+              child: CharacterDetails(
             character: selectedCharacter,
           ));
         }

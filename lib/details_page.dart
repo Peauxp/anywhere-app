@@ -21,7 +21,7 @@ class DetailsPage extends StatelessWidget {
                 AppBar().preferredSize.height -
                 MediaQuery.of(context).padding.top,
           ),
-          child: DetailsLayout(
+          child: CharacterDetails(
             character: character,
           ),
         ),
