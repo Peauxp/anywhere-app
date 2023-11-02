@@ -1,5 +1,5 @@
 import 'package:anywhere_app/classes/result_data.dart';
-import 'package:anywhere_app/layouts/details.dart';
+import 'package:anywhere_app/layouts/character_details.dart';
 import 'package:flutter/material.dart';
 
 class DetailsPage extends StatelessWidget {

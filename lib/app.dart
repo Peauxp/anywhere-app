@@ -3,7 +3,8 @@ import 'dart:async';
 import 'package:anywhere_app/classes/app_config.dart';
 import 'package:anywhere_app/classes/result_data.dart';
 import 'package:anywhere_app/details_page.dart';
-import 'package:anywhere_app/layouts/details.dart';
+import 'package:anywhere_app/layouts/character_details.dart';
+import 'package:anywhere_app/layouts/charater_list_view.dart';
 import 'package:anywhere_app/providers/call_result.dart';
 import 'package:anywhere_app/providers/current_app_config.dart';
 import 'package:flutter/material.dart';
@@ -26,20 +27,49 @@ class MyApp extends ConsumerWidget {
     required ResultData? resultData,
     required Function(Character) onTap,
   }) {
-    return ListView.builder(
-      itemCount: resultData?.characters.length,
-      itemBuilder: (context, index) {
-        Character character = resultData?.characters[index] ??
-            const Character(
-              text: '',
-              icon: CharacterIcon(height: '', width: '', url: ''),
-            );
-        List<String> descriptionParts = character.text.split(' - ');
-        return ListTile(
-          title: Text(descriptionParts[0]),
-          onTap: () => onTap(character),
-        );
-      },
+    TextEditingController searchController = TextEditingController();
+
+    return Column(
+      children: [
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: TextField(
+            controller: searchController,
+            decoration: InputDecoration(
+              hintText: 'Search',
+              suffixIcon: IconButton(
+                icon: const Icon(Icons.clear),
+                onPressed: () => searchController.clear(),
+              ),
+            ),
+            onChanged: (value) {
+              // You can handle search functionality here
+            },
+          ),
+        ),
+        Expanded(
+          child: ListView.builder(
+            itemCount: resultData?.characters.length,
+            itemBuilder: (context, index) {
+              Character character = resultData?.characters[index] ??
+                  const Character(
+                    text: '',
+                    icon: CharacterIcon(height: '', width: '', url: ''),
+                  );
+              List<String> descriptionParts = character.text.split(' - ');
+              if (character.text
+                  .contains(searchController.text.toLowerCase())) {
+                return ListTile(
+                  title: Text(descriptionParts[0]),
+                  onTap: () => onTap(character),
+                );
+              } else {
+                return const SizedBox.shrink();
+              }
+            },
+          ),
+        ),
+      ],
     );
   }
 
@@ -92,9 +122,9 @@ class MyApp extends ConsumerWidget {
               return Row(
                 children: [
                   Expanded(
-                    child: _buildListView(
+                    child: CharacterListView(
                       resultData: resultData,
-                      onTap: (selectedCharacter) {
+                      onTap: (Character selectedCharacter) {
                         _selectedTabletCharacter.value = selectedCharacter;
                       },
                     ),
@@ -106,7 +136,7 @@ class MyApp extends ConsumerWidget {
                 ],
               );
             } else {
-              return _buildListView(
+              return CharacterListView(
                 resultData: resultData,
                 onTap: (Character selectedCharacter) =>
                     Navigator.of(context).push(
