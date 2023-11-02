@@ -65,13 +65,13 @@ android {
         simpsons {
             dimension "anywhere"
             applicationIdSuffix ".simpsonsviewer"
-            resValue "string", "app_name", "Simpsons Anywhere"
+            resValue "string", "app_name", "Simpsons Characters"
             versionNameSuffix ".simpsons"
         }
         wire {
             dimension "anywhere"
             applicationIdSuffix ".wire"
-            resValue "string", "app_name", "Wire Anywhere"
+            resValue "string", "app_name", "The Wire Characters"
             versionNameSuffix ".wireviewer"
         }
     }
